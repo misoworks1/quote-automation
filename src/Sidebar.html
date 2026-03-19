@@ -4,349 +4,153 @@
   <base target="_top">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Google Sans', Arial, sans-serif;
-      font-size: 13px;
-      color: #333;
-      padding: 16px;
-      background: #fafafa;
-    }
-
-    h2 {
-      font-size: 18px;
-      font-weight: 600;
-      color: #1a73e8;
-      margin-bottom: 16px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid #1a73e8;
-    }
-
-    h3 {
-      font-size: 14px;
-      font-weight: 600;
-      color: #555;
-      margin: 16px 0 8px 0;
-    }
-
-    .section {
-      background: #fff;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      padding: 12px;
-      margin-bottom: 12px;
-    }
-
-    .form-row {
-      display: flex;
-      align-items: center;
-      margin-bottom: 8px;
-    }
-
-    .form-row label {
-      width: 70px;
-      font-weight: 500;
-      color: #555;
-      flex-shrink: 0;
-    }
-
-    .form-row input {
-      flex: 1;
-      padding: 6px 8px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      font-size: 13px;
-    }
-
-    .form-row input:focus {
-      outline: none;
-      border-color: #1a73e8;
-      box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.15);
-    }
-
-    /* 품목 테이블 */
-    .item-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 8px;
-    }
-
-    .item-table th {
-      background: #f5f5f5;
-      padding: 6px 4px;
-      font-size: 12px;
-      font-weight: 600;
-      color: #666;
-      border-bottom: 1px solid #ddd;
-      text-align: center;
-    }
-
-    .item-table td {
-      padding: 4px 2px;
-      text-align: center;
-    }
-
-    .item-table input {
-      width: 100%;
-      padding: 5px 4px;
-      border: 1px solid #ddd;
-      border-radius: 3px;
-      font-size: 12px;
-      text-align: center;
-    }
-
-    .item-table input.item-name {
-      text-align: left;
-    }
-
-    .item-table .supply {
-      background: #f9f9f9;
-      font-size: 12px;
-      color: #333;
-      font-weight: 500;
-    }
-
-    .btn-remove {
-      background: none;
-      border: none;
-      color: #d93025;
-      cursor: pointer;
-      font-size: 16px;
-      padding: 2px 6px;
-    }
-
-    .btn-add-row {
-      background: none;
-      border: 1px dashed #1a73e8;
-      color: #1a73e8;
-      padding: 6px;
-      width: 100%;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 13px;
-    }
-
-    .btn-add-row:hover {
-      background: #e8f0fe;
-    }
-
-    /* 합계 */
-    .total-section {
-      display: flex;
-      justify-content: space-between;
-      padding: 8px 0;
-      font-weight: 600;
-      font-size: 14px;
-      color: #1a73e8;
-      border-top: 1px solid #e0e0e0;
-      margin-top: 8px;
-    }
-
-    /* 버튼 */
-    .btn-group {
-      display: flex;
-      gap: 8px;
-      margin-top: 16px;
-    }
-
-    .btn {
-      flex: 1;
-      padding: 10px;
-      border: none;
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .btn-primary {
-      background: #1a73e8;
-      color: #fff;
-    }
-
+    body { font-family: 'Google Sans', Arial, sans-serif; font-size: 13px; color: #333; padding: 16px; background: #fafafa; }
+    h2 { font-size: 18px; font-weight: 600; color: #1a73e8; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #1a73e8; }
+    h3 { font-size: 14px; font-weight: 600; color: #555; margin: 16px 0 8px 0; }
+    .section { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 12px; margin-bottom: 12px; }
+    .form-row { display: flex; align-items: center; margin-bottom: 8px; }
+    .form-row label { width: 70px; font-weight: 500; color: #555; flex-shrink: 0; }
+    .form-row input { flex: 1; padding: 6px 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 13px; }
+    .form-row input:focus { outline: none; border-color: #1a73e8; box-shadow: 0 0 0 2px rgba(26,115,232,0.15); }
+    .item-table { width: 100%; border-collapse: collapse; margin-bottom: 8px; }
+    .item-table th { background: #f5f5f5; padding: 6px 4px; font-size: 12px; font-weight: 600; color: #666; border-bottom: 1px solid #ddd; text-align: center; }
+    .item-table td { padding: 4px 2px; text-align: center; }
+    .item-table input { width: 100%; padding: 5px 4px; border: 1px solid #ddd; border-radius: 3px; font-size: 12px; text-align: center; }
+    .item-table input.item-name { text-align: left; }
+    .item-table .supply { background: #f9f9f9; font-size: 12px; color: #333; font-weight: 500; }
+    .btn-remove { background: none; border: none; color: #d93025; cursor: pointer; font-size: 16px; padding: 2px 6px; }
+    .btn-add-row { background: none; border: 1px dashed #1a73e8; color: #1a73e8; padding: 6px; width: 100%; border-radius: 4px; cursor: pointer; font-size: 13px; }
+    .btn-add-row:hover { background: #e8f0fe; }
+    .total-section { display: flex; justify-content: space-between; padding: 8px 0; font-weight: 600; font-size: 14px; color: #1a73e8; border-top: 1px solid #e0e0e0; margin-top: 8px; }
+    .btn-group { display: flex; gap: 8px; margin-top: 16px; }
+    .btn { flex: 1; padding: 10px; border: none; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+    .btn-primary { background: #1a73e8; color: #fff; }
     .btn-primary:hover { background: #1557b0; }
-
-    .btn-secondary {
-      background: #fff;
-      color: #1a73e8;
-      border: 1px solid #1a73e8;
-    }
-
+    .btn-secondary { background: #fff; color: #1a73e8; border: 1px solid #1a73e8; }
     .btn-secondary:hover { background: #e8f0fe; }
-
-    .btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-
-    /* 상태 메시지 */
-    .status {
-      margin-top: 12px;
-      padding: 8px;
-      border-radius: 4px;
-      font-size: 12px;
-      display: none;
-    }
-
-    .status.success {
-      display: block;
-      background: #e6f4ea;
-      color: #137333;
-    }
-
-    .status.error {
-      display: block;
-      background: #fce8e6;
-      color: #d93025;
-    }
-
-    .status.loading {
-      display: block;
-      background: #e8f0fe;
-      color: #1a73e8;
-    }
+    .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .status { margin-top: 12px; padding: 8px; border-radius: 4px; font-size: 12px; display: none; }
+    .status.success { display: block; background: #e6f4ea; color: #137333; }
+    .status.error { display: block; background: #fce8e6; color: #d93025; }
+    .status.loading { display: block; background: #e8f0fe; color: #1a73e8; }
   </style>
 </head>
 <body>
   <h2>견적서 작성</h2>
-
-  <!-- 수신자 정보 -->
   <div class="section">
     <h3>수신자 정보</h3>
-    <div class="form-row">
-      <label>업체명</label>
-      <input type="text" id="recipientCompany" placeholder="예: 임팩트업">
-    </div>
-    <div class="form-row">
-      <label>담당자</label>
-      <input type="text" id="recipientName" placeholder="예: 박시연">
-    </div>
-    <div class="form-row">
-      <label>연락처</label>
-      <input type="text" id="recipientPhone" placeholder="예: 010-3479-1699">
-    </div>
-    <div class="form-row">
-      <label>이메일</label>
-      <input type="text" id="recipientEmail" placeholder="예: impact-up@naver.com">
-    </div>
+    <div class="form-row"><label>업체명</label><input type="text" id="recipientCompany" placeholder="예: 임팩트업"></div>
+    <div class="form-row"><label>담당자</label><input type="text" id="recipientName" placeholder="예: 박시연"></div>
+    <div class="form-row"><label>연락처</label><input type="text" id="recipientPhone" placeholder="예: 010-3479-1699"></div>
+    <div class="form-row"><label>이메일</label><input type="text" id="recipientEmail" placeholder="예: impact-up@naver.com"></div>
   </div>
-
-  <!-- 견적 정보 -->
   <div class="section">
     <h3>견적 정보</h3>
-    <div class="form-row">
-      <label>견적일자</label>
-      <input type="date" id="quoteDate">
-    </div>
-    <div class="form-row">
-      <label>유효기간</label>
-      <input type="text" id="validityPeriod" value="견적일로 부터 1개월간 유효">
-    </div>
+    <div class="form-row"><label>견적일자</label><input type="date" id="quoteDate"></div>
+    <div class="form-row"><label>유효기간</label><input type="text" id="validityPeriod" value="견적일로 부터 1개월간 유효"></div>
   </div>
-
-  <!-- 품목 -->
   <div class="section">
     <h3>품목</h3>
     <table class="item-table">
-      <thead>
-        <tr>
-          <th style="width:35%">품명</th>
-          <th style="width:15%">수량</th>
-          <th style="width:20%">단가</th>
-          <th style="width:22%">공급가액</th>
-          <th style="width:8%"></th>
-        </tr>
-      </thead>
-      <tbody id="itemBody">
-        <!-- 동적 생성 -->
-      </tbody>
+      <thead><tr><th style="width:35%">품명</th><th style="width:15%">수량</th><th style="width:20%">단가</th><th style="width:22%">공급가액</th><th style="width:8%"></th></tr></thead>
+      <tbody id="itemBody"></tbody>
     </table>
-    <button class="btn-add-row" onclick="addItemRow()">+ 품목 추가</button>
-
-    <div class="total-section">
-      <span>합계 (VAT 포함)</span>
-      <span id="totalDisplay">₩0</span>
-    </div>
+    <button class="btn-add-row" id="btnAddRow">+ 품목 추가</button>
+    <div class="total-section"><span>합계 (VAT 포함)</span><span id="totalDisplay">₩0</span></div>
   </div>
-
-  <!-- 버튼 -->
   <div class="btn-group">
-    <button class="btn btn-primary" id="btnWrite" onclick="submitQuote()">시트에 입력</button>
-    <button class="btn btn-secondary" id="btnPDF" onclick="downloadPDF()">PDF 다운로드</button>
+    <button class="btn btn-primary" id="btnWrite">시트에 입력</button>
+    <button class="btn btn-secondary" id="btnPDF">PDF 다운로드</button>
   </div>
-
   <div class="status" id="statusMsg"></div>
-
   <script>
-    // 초기화
-    window.onload = function() {
-      // 오늘 날짜 기본값
-      document.getElementById('quoteDate').value = new Date().toISOString().split('T')[0];
-      // 기본 품목 행 1개
-      addItemRow();
-    };
-
-    let itemCount = 0;
+    var itemCount = 0;
 
     function addItemRow() {
-      const tbody = document.getElementById('itemBody');
-      const row = document.createElement('tr');
-      row.id = 'item-' + itemCount;
-      row.innerHTML =
-        '<td><input type="text" class="item-name" data-field="name" placeholder="품명"></td>' +
-        '<td><input type="number" data-field="quantity" placeholder="0" onchange="calcRow(this)" oninput="calcRow(this)"></td>' +
-        '<td><input type="number" data-field="unitPrice" placeholder="0" onchange="calcRow(this)" oninput="calcRow(this)"></td>' +
-        '<td class="supply" id="supply-' + itemCount + '">0</td>' +
-        '<td><button class="btn-remove" onclick="removeRow(\'' + row.id + '\')">&times;</button></td>';
+      var tbody = document.getElementById('itemBody');
+      var row = document.createElement('tr');
+      var currentId = 'item-' + itemCount;
+      row.id = currentId;
+
+      var td1 = document.createElement('td');
+      var input1 = document.createElement('input');
+      input1.type = 'text';
+      input1.className = 'item-name';
+      input1.setAttribute('data-field', 'name');
+      input1.placeholder = '품명';
+      td1.appendChild(input1);
+
+      var td2 = document.createElement('td');
+      var input2 = document.createElement('input');
+      input2.type = 'number';
+      input2.setAttribute('data-field', 'quantity');
+      input2.placeholder = '0';
+      input2.addEventListener('input', function() { calcRow(this); });
+      td2.appendChild(input2);
+
+      var td3 = document.createElement('td');
+      var input3 = document.createElement('input');
+      input3.type = 'number';
+      input3.setAttribute('data-field', 'unitPrice');
+      input3.placeholder = '0';
+      input3.addEventListener('input', function() { calcRow(this); });
+      td3.appendChild(input3);
+
+      var td4 = document.createElement('td');
+      td4.className = 'supply';
+      td4.id = 'supply-' + itemCount;
+      td4.textContent = '0';
+
+      var td5 = document.createElement('td');
+      var btnDel = document.createElement('button');
+      btnDel.className = 'btn-remove';
+      btnDel.textContent = '\u00D7';
+      btnDel.addEventListener('click', function() { removeRow(currentId); });
+      td5.appendChild(btnDel);
+
+      row.appendChild(td1);
+      row.appendChild(td2);
+      row.appendChild(td3);
+      row.appendChild(td4);
+      row.appendChild(td5);
       tbody.appendChild(row);
       itemCount++;
     }
 
     function removeRow(rowId) {
-      var row = document.getElementById(rowId);
-      if (row) {
-        row.remove();
-        updateTotal();
-      }
+      var r = document.getElementById(rowId);
+      if (r) { r.remove(); updateTotal(); }
     }
 
     function calcRow(input) {
       var row = input.closest('tr');
       var qty = Number(row.querySelector('[data-field="quantity"]').value) || 0;
       var price = Number(row.querySelector('[data-field="unitPrice"]').value) || 0;
-      var supply = qty * price;
-      row.querySelector('.supply').textContent = supply.toLocaleString();
+      row.querySelector('.supply').textContent = (qty * price).toLocaleString();
       updateTotal();
     }
 
     function updateTotal() {
-      var supplies = document.querySelectorAll('.supply');
       var total = 0;
-      supplies.forEach(function(el) {
+      document.querySelectorAll('.supply').forEach(function(el) {
         total += Number(el.textContent.replace(/,/g, '')) || 0;
       });
-      var totalWithTax = total + Math.round(total * 0.1);
-      document.getElementById('totalDisplay').textContent = '₩' + totalWithTax.toLocaleString();
+      document.getElementById('totalDisplay').textContent = '₩' + (total + Math.round(total * 0.1)).toLocaleString();
     }
 
     function getFormData() {
       var items = [];
-      var rows = document.querySelectorAll('#itemBody tr');
-      rows.forEach(function(row) {
+      document.querySelectorAll('#itemBody tr').forEach(function(row) {
         var name = row.querySelector('[data-field="name"]').value.trim();
-        var qty = row.querySelector('[data-field="quantity"]').value;
-        var price = row.querySelector('[data-field="unitPrice"]').value;
         if (name) {
           items.push({
             name: name,
-            quantity: qty,
-            unitPrice: price,
+            quantity: row.querySelector('[data-field="quantity"]').value,
+            unitPrice: row.querySelector('[data-field="unitPrice"]').value,
             note: ''
           });
         }
       });
-
       return {
         recipientCompany: document.getElementById('recipientCompany').value.trim(),
         recipientName: document.getElementById('recipientName').value.trim(),
@@ -358,60 +162,55 @@
       };
     }
 
-    function setStatus(message, type) {
+    function setStatus(msg, type) {
       var el = document.getElementById('statusMsg');
       el.className = 'status ' + type;
-      el.textContent = message;
+      el.textContent = msg;
     }
 
-    function setButtonsEnabled(enabled) {
-      document.getElementById('btnWrite').disabled = !enabled;
-      document.getElementById('btnPDF').disabled = !enabled;
+    function setButtonsEnabled(e) {
+      document.getElementById('btnWrite').disabled = !e;
+      document.getElementById('btnPDF').disabled = !e;
     }
 
-    function submitQuote() {
+    function validateForm() {
       var data = getFormData();
-      if (!data.recipientCompany) {
-        setStatus('수신자 업체명을 입력해주세요.', 'error');
-        return;
-      }
-      if (data.items.length === 0) {
-        setStatus('품목을 최소 1개 입력해주세요.', 'error');
-        return;
-      }
+      if (!data.recipientCompany) { setStatus('수신자 업체명을 입력해주세요.', 'error'); return null; }
+      if (data.items.length === 0) { setStatus('품목을 최소 1개 입력해주세요.', 'error'); return null; }
+      return data;
+    }
 
+    document.getElementById('btnAddRow').addEventListener('click', addItemRow);
+
+    document.getElementById('btnWrite').addEventListener('click', function() {
+      var data = validateForm();
+      if (!data) return;
       setStatus('시트에 입력 중...', 'loading');
       setButtonsEnabled(false);
-
       google.script.run
-        .withSuccessHandler(function(result) {
-          setStatus('입력 완료! 합계: ₩' + result.totalAmount.toLocaleString(), 'success');
-          setButtonsEnabled(true);
-        })
-        .withFailureHandler(function(err) {
-          setStatus('오류: ' + err.message, 'error');
-          setButtonsEnabled(true);
-        })
+        .withSuccessHandler(function(r) { setStatus('입력 완료! 합계: ₩' + r.totalAmount.toLocaleString(), 'success'); setButtonsEnabled(true); })
+        .withFailureHandler(function(e) { setStatus('오류: ' + e.message, 'error'); setButtonsEnabled(true); })
         .writeQuoteData(data);
-    }
+    });
 
-    function downloadPDF() {
-      setStatus('PDF 생성 중...', 'loading');
+    document.getElementById('btnPDF').addEventListener('click', function() {
+      var data = validateForm();
+      if (!data) return;
+      setStatus('시트에 입력 후 PDF 생성 중...', 'loading');
       setButtonsEnabled(false);
-
       google.script.run
-        .withSuccessHandler(function(result) {
-          setStatus('PDF 생성 완료! Google Drive에 저장되었습니다.', 'success');
-          setButtonsEnabled(true);
-          // 새 탭에서 PDF 열기
-          window.open(result.fileUrl, '_blank');
+        .withSuccessHandler(function() {
+          google.script.run
+            .withSuccessHandler(function(r) { setStatus('PDF 생성 완료! Google Drive에 저장됨', 'success'); setButtonsEnabled(true); window.open(r.fileUrl, '_blank'); })
+            .withFailureHandler(function(e) { setStatus('PDF 오류: ' + e.message, 'error'); setButtonsEnabled(true); })
+            .generatePDF();
         })
-        .withFailureHandler(function(err) {
-          setStatus('PDF 오류: ' + err.message, 'error');
-          setButtonsEnabled(true);
-        })
-        .generatePDF();
-    }
+        .withFailureHandler(function(e) { setStatus('입력 오류: ' + e.message, 'error'); setButtonsEnabled(true); })
+        .writeQuoteData(data);
+    });
+
+    document.getElementById('quoteDate').value = new Date().toISOString().split('T')[0];
+    addItemRow();
   </script>
 </body>
 </html>
